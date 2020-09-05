@@ -1,0 +1,17 @@
+{%extends 'base_layout.html'%}
+{%block content%}
+    <form class="site-form" action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <div class="m-5 p-5" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="m-2 p-2">
+            Username : {{form.username}} 
+            </div>
+            <div class="m-2 p-2">
+    Password : {{form.password}}
+</div>
+<div class="m-2 p-2">
+    <button type="submit" class="btn btn-outline-primary">Login</button>
+    </div>
+</div>
+</form>
+{%endblock%}

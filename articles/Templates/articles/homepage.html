@@ -1,0 +1,101 @@
+{%extends 'base_layout.html'%} {%block content%}
+<style>
+    a:link {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  </style>
+<div class="row m-0 p-0">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='health' %}">
+        <img src="https://tenor.com/view/yoga-loseweight-gif-9143495.gif" alt="yoga" height=250  width=250 />
+        <h1>HEALTH</h1>
+         </a>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='music' %}">
+        <img src="https://tenor.com/view/hxf-mo-music-cute-dance-gif-12211094.gif" alt="music" height=250  width=250 />
+        <h1>MUSIC</h1>
+    </a>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='study' %}">
+        <img src="https://tenor.com/view/study-kawaii-cute-gif-12821965.gif" alt="study" height=250 width=250 />
+        <h1>STUDY</h1>
+        </a>
+    </div>
+    </div>
+</div>
+    <div class="row m-0 p-0">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='programming' %}">
+        <img src="https://tenor.com/view/programming-computer-typing-gif-7963714.gif" alt="programming"height=250 width=250 />
+        <h1>PROGRAMMING</h1>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='gaming' %}">
+        <img src="https://tenor.com/view/gaming-timmy-turner-fairly-odd-parents-console-no-sleep-gif-5096256.gif" alt="gaming" height=250 width=250 />
+        <h1>GAMING</h1>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='food' %}">
+        <img src="https://tenor.com/view/mexican-food-patrick-star-spongebob-mexican-cuisine-taco-night-gif-17916990.gif" alt="food" height=250 width=250 />
+        <h1>FOOD</h1>
+        </a>
+    </div>
+    </div>
+</div>
+    <div class="row m-0 p-0">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='movies' %}">
+        <img src="https://tenor.com/view/popcorn-gif-4572206.gif" alt="movies" height=250 width=250 />
+        <h1>MOVIES</h1>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='cartoons' %}">
+        <img src="https://tenor.com/view/minions-gif-10096244.gif" alt="cartoon" height=250 width=250 />
+        <h1>CARTOONS</h1>
+        </a>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12p-3">
+    <div class="card p-3" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+        <a href="{% url 'users:topic' sub='mining' %}">
+        <img src="https://tenor.com/view/donald-duck-mining-gif-10499351.gif" alt="mining" height=250 width=250 />
+        <h1>MINING</h1>
+        </a>
+    </div>
+    </div>
+</div> 
+<h1 style="text-align: center">Recent Posts</h1>
+    {% for article in articles %}
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-3">
+            <a href="{% url 'articles:detail' slug=article.id %}">
+                <div class="card m-3 p-3">
+                    <div class="card-header"> {{article.topic }}</div>
+                    <div class="card-body"> {{article.snippet }}</div>
+                    <div class="card-footer"> {{article.date }}</div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+  {%endblock%}
+</div>

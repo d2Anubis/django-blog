@@ -1,0 +1,44 @@
+{%extends 'base_layout.html'%} {%block content%}
+<h1>All Articles</h1>
+<style>
+  a:link {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+</style>
+<div class="row m-0 p-0">
+  {% for article in page_obj %}
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-10">
+    <div class="card m-3 p-3">
+      <a href="{% url 'articles:detail' slug=article.id %}">
+        <h3 class="card-title" style="text-align: center">{{article.topic}}</h3>
+        <div class="card-body">
+          <p>{{ article.snippet | safe}}</p>
+          <div class="card-footer">{{ article.date}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% if page_obj.has_other_pages %}
+<ul
+  class="pagination"
+  style="display: flex; justify-content: center; align-items: center"
+>
+  {% if page_obj.has_previous %}
+  <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+  {% endif %} 
+  {% for i in page_obj.paginator.page_range %} {% if page_obj.number == i %}
+  <li class="active">
+    <span>{{ i }} <span class="sr-only">(current)</span></span>
+  </li>
+  {% endif %} 
+  {% endfor %} 
+  {% if page_obj.has_next %}
+  <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+  {% endif %}
+</ul>
+{% endif %} {%endblock%}
